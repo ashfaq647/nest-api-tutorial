@@ -18,29 +18,35 @@ model User {
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
 
-  email String @unique 
+  name String
+
+  email String @unique
 
   hash String
 
-  firstName String?
-  lastName  String?
+  username String
 
-  bookmarks Bookmark[]
+  address String
 
-  @@map("users")
+  phoneNumber String
 }
 
-model Bookmark {
-  id       Int      @id @default(autoincrement())
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+model payout {
+  id Int @unique @default(autoincrement())
 
-  title       String
-  description String?
-  link        String
+  date DateTime @default(now())
 
-  userId Int
-  user   User @relation(fields: [userId], references: [id])
+  amount String
 
-  @@map("bookmarks")
+  method String
+
+  status String
+}
+
+model url {
+  id Int @unique @default(autoincrement())
+
+  urltype String
+
+  url String
 }
