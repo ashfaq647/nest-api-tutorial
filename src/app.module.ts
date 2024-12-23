@@ -15,7 +15,7 @@ import { payoutModule } from './payout/payout.module';
 @Module({
   imports: [ConfigModule.forRoot({
     isGlobal :  true,
-  }),AuthModule, UserModule, PrismaModule, payoutModule,urlModule],
+  }),AuthModule, UserModule, BookmarkModule, PrismaModule],
   providers : [AuthService , JwtStrategy,JwtService]
   
  

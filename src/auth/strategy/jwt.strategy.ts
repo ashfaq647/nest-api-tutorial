@@ -22,17 +22,16 @@ export class JwtStrategy extends PassportStrategy(
         sub : number ;
         email : string;
         
-    }) 
-    {
-        const admin = await this.prisma.user.findUnique({
+    }) {
+        const user = await this.prisma.user.findUnique({
             where : {
                 id : payload.sub,
                 
             },
             
         });
-        delete admin.hash;
-        return admin ;
+        delete user.hash;
+        return user ;
     }
 
 }
